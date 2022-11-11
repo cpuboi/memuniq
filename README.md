@@ -9,7 +9,7 @@ With this configuration memuniq uses about 5megs of RAM.
 
 ### Compiling ###
 ```
-go build -o memuniq -ldflags="-s -w" main.go
+go build -ldflags="-s -w" memuniq.go
 ```
 ### Shrinking the binary ###
 Install UPX to compress binary even further  
