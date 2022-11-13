@@ -24,7 +24,7 @@ Usage of ./memuniq:
 
 ### Compiling ###
 ```
-go build -o memuniq -ldflags="-s -w" main.go
+go build -ldflags="-s -w" memuniq.go
 ```
 
 
