@@ -10,14 +10,15 @@ With this configuration memuniq uses about 5megs of RAM.
 ## Usage ##
 ```
 Usage of ./memuniq:
+  -a	Abort process if the filter file does not exist
   -f string
-    	Location of bloomfilter file (default "/home/user/.cache/bloomfilter.b64")
-  -i	Show statistics of processed lines
-  -n	Create a new filter and delete the old.
+    	Location of bloomfilter file (default "/home/cpuboi/.cache/bloomfilter.bin")
+  -i	Show information about processed lines
+  -n	Create a new filter and delete the old
   -p float
     	Approximate error rate percentage, default 0.001% (default 0.001)
   -s int
-    	Size of bloomfilter before major collissions occur, default: 1_000_000 (default 1000000)
+    	Size of bloomfilter before major collissions occur (default 1000000)
   -v	Show verbose information
 ```
 
