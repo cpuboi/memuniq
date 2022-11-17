@@ -1,0 +1,4 @@
+# github.com/EverythingMe/inbloom v0.0.0-20190617073926-1d67c94ae5dc
+## explicit
+github.com/EverythingMe/inbloom/go/inbloom
+github.com/EverythingMe/inbloom/go/internal/gomurmur

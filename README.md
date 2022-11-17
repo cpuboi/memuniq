@@ -41,3 +41,7 @@ This shrinks size from 1,6MB to 0,6MB
 ```
 upx memuniq
 ```
+
+### Thanks ###
+Thanks to Everythingme for the Go Bloom code  
+github.com/EverythingMe/inbloom  
