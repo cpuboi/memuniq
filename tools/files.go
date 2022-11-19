@@ -55,29 +55,26 @@ func IsWriteable(filePath string) bool {
 	// This works, but is it best practice ??
 	// Check if user owns file
 	if uid == int(fileStat.Uid) {
-		for i := 1; i < 4; i++ { // Will search for "w" in user range
-			perm := mode.String()[i]
-			if perm == 119 { // if w, then writeable
-				return true
-			}
+		if mode.String()[2] == 119 { // -r[2]-r--r-- if 2 = w, then writeable
+			return true
+		} else {
+			return false // Linux is interesting, if permissions are 577 and you are the owner of the file, you still cant write.
 		}
 	}
+
 	for _, g := range groups { // Loop over all groups user is in .
 		if g == int(fileStat.Gid) { // If group is the same as file
-			for i := 4; i < 7; i++ { // Will search for "w" in group range
-				perm := mode.String()[i]
-				if perm == 119 { // if w, then writeable
-					return true
-				}
+			if mode.String()[5] == 119 { // -rw-r[5]-r-- if 2 = w, then writeable
+				return true
+			} else {
+				return false // You are in group but not allowed to write
 			}
 		}
 	}
 	// The final any catch all
-	for i := 7; i < 10; i++ { // Will search for "w" in any range
-		perm := mode.String()[i]
-		if perm == 119 { // if w, then writeable
-			return true
-		}
+	if mode.String()[8] == 119 { // -r--r--r[8]- if 2 = w, then writeable
+		return true
+	} else {
+		return false // You are in group but not allowed to write
 	}
-	return false // Not writeable
 }
